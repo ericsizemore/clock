@@ -39,7 +39,7 @@ final class SystemClock implements ClockInterface
             try {
                 $timezone = new \DateTimeZone($timezone);
             } catch (\Throwable $throwable) { // \Exception < PHP 8.3, \DateInvalidTimeZoneException >= PHP 8.3
-                throw new \DateInvalidTimeZoneException($throwable->getMessage(), (int) $throwable->getCode(), $throwable);
+                throw new \DateInvalidTimeZoneException($throwable->getMessage(), \intval($throwable->getCode()), $throwable);
             }
         }
 
