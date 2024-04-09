@@ -52,6 +52,8 @@ jobs:
       - name: "Run Infection"
         if: github.event_name != 'pull_request'
         run: composer run-script analyze:mutation
+        env:
+          STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
 
       - name: "Run Infection, Pull Request"
         if: github.event_name == 'pull_request'
