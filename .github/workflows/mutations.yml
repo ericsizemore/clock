@@ -49,8 +49,8 @@ jobs:
       - name: "Install dependencies"
         run: composer install --prefer-dist --no-progress
 
-      - name: "Run Infection, Pull Request"
-        if: github.event_name == 'push'
+      - name: "Run Infection"
+        if: github.event_name != 'pull_request'
         run: composer run-script analyze:mutation
 
       - name: "Run Infection, Pull Request"
