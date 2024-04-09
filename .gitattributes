@@ -9,6 +9,7 @@
 /.php-cs-fixer.dist.php   export-ignore
 /.scrutinizer.yml         export-ignore
 /composer.lock            export-ignore
+/infection.json5          export-ignore
 /phpstan.neon             export-ignore
 /phpunit.xml              export-ignore
 /renovate.json            export-ignore

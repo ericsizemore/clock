@@ -13,8 +13,6 @@
 
 Yet ...another... PSR-20 Clock implementation.
 
-`Documentation still a work in progress.`
-
 
 ## Installation
 
@@ -23,12 +21,13 @@ Yet ...another... PSR-20 Clock implementation.
 The script can be installed using composer. Add this repository as a dependency to the composer.json file.
 
 ```bash
-$ composer require esi/clock:^1.0 --no-dev
+$ composer require esi/clock:^1.0
 ```
 
 
 ## Usage
 
+`Documentation still a work in progress.`
 
 
 ## About
@@ -90,6 +89,7 @@ One thing at a time: A pull request should only contain one change. That does no
 
 ### Backward Compatibility Promise
 
+* See [backward-compatibility.md](backward-compatibility.md)
 
 
 ### Author

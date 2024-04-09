@@ -14,7 +14,7 @@
     },
     "logs": {
         "stryker": {
-            "badge": "master"
+            "report": "master"
         }
     },
     "tmpDir": "build/logs/infection",
