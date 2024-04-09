@@ -21,7 +21,7 @@ jobs:
           - "ubuntu-latest"
     steps:
       - uses: actions/checkout@v4
-           fetch-depth: 10
+
       - name: "Install PHP ${{ matrix.php-version }}"
         uses: shivammathur/setup-php@master
         with:
@@ -58,3 +58,4 @@ jobs:
         run: |
           git fetch origin $GITHUB_BASE_REF
           php vendor/bin/infection --threads=max --git-diff-lines --git-diff-base=origin/$GITHUB_BASE_REF --configuration=infection.json5 --min-msi=100 --min-covered-msi=100
+          
