@@ -5,7 +5,10 @@
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ericsizemore/clock/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ericsizemore/clock/?branch=master)
 [![Tests](https://github.com/ericsizemore/clock/actions/workflows/tests.yml/badge.svg)](https://github.com/ericsizemore/clock/actions/workflows/tests.yml)
 [![PHPStan](https://github.com/ericsizemore/clock/actions/workflows/main.yml/badge.svg)](https://github.com/ericsizemore/clock/actions/workflows/main.yml)
+[![Psalm Static analysis](https://github.com/ericsizemore/clock/actions/workflows/psalm.yml/badge.svg?branch=master)](https://github.com/ericsizemore/clock/actions/workflows/psalm.yml)
 
+[![Type Coverage](https://shepherd.dev/github/ericsizemore/clock/coverage.svg)](https://shepherd.dev/github/ericsizemore/clock)
+[![Psalm Level](https://shepherd.dev/github/ericsizemore/clock/level.svg)](https://shepherd.dev/github/ericsizemore/clock)
 [![Latest Stable Version](https://img.shields.io/packagist/v/esi/clock.svg)](https://packagist.org/packages/esi/clock)
 [![Downloads per Month](https://img.shields.io/packagist/dm/esi/clock.svg)](https://packagist.org/packages/esi/clock)
 [![License](https://img.shields.io/packagist/l/esi/clock.svg)](https://packagist.org/packages/esi/clock)

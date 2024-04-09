@@ -31,13 +31,15 @@ final class SystemClock implements ClockInterface
      */
     public function __construct(\DateTimeZone | string | null $timezone = null)
     {
-        $timezone ??= new \DateTimeZone('UTC');
+        if ($timezone === null || $timezone === '') {
+            $timezone = new \DateTimeZone('UTC');
+        }
 
         if (\is_string($timezone)) {
             try {
                 $timezone = new \DateTimeZone($timezone);
-            } catch (\Throwable $throwable) {
-                throw new \DateInvalidTimeZoneException($throwable->getMessage(), $throwable->getCode(), $throwable);
+            } catch (\Throwable $throwable) { // \Exception < PHP 8.3, \DateInvalidTimeZoneException >= PHP 8.3
+                throw new \DateInvalidTimeZoneException($throwable->getMessage(), (int) $throwable->getCode(), $throwable);
             }
         }
 

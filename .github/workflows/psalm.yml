@@ -1,31 +1,21 @@
-name: Psalm Security Scan
+name: Psalm Static analysis
 
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-  schedule:
-    - cron: '38 23 * * 1'
-
-permissions:
-  contents: read
+on: [push, pull_request]
 
 jobs:
-  psalm-security-scan:
+  psalm:
     name: Psalm
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      security-events: write
-      actions: read
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Psalm Security Scan
-        uses: docker://ghcr.io/psalm/psalm-security-scan:5.23.1
+      - name: Psalm
+        uses: docker://vimeo/psalm-github-actions:latest
+        with:
+          args: --shepherd
+          composer_require_dev: true
+          security_analysis: true
+          report_file: results.sarif
 
       - name: Upload Security Analysis results to GitHub
         uses: github/codeql-action/upload-sarif@v3
