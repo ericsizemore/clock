@@ -1,0 +1,81 @@
+{
+    "name": "esi/clock",
+    "description": "Yet another PSR-20 clock implementation",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "clock",
+        "clock-interface",
+        "time",
+        "psr20",
+        "psr-20"
+    ],
+    "authors": [
+        {
+            "name": "Eric Sizemore",
+            "email": "admin@secondversion.com",
+            "homepage": "https://www.secondversion.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/ericsizemore/clock/issues",
+        "forum": "https://github.com/ericsizemore/clock/discussions",
+        "source": "https://github.com/ericsizemore/clock/tree/master",
+        "security": "https://github.com/ericsizemore/clock/security/policy"
+    },
+    "funding": [
+        {
+            "type": "custom",
+            "url": "https://ko-fi.com/ericsizemore"
+        },
+        {
+            "type": "github",
+            "url": "https://github.com/ericsizemore"
+        },
+        {
+            "type": "tidelift",
+            "url": "https://tidelift.com/funding/github/packagist/esi/clock"
+        }
+    ],
+    "require": {
+        "php": "^8.2 <8.5",
+        "psr/clock": "^1.0",
+        "symfony/polyfill-php83": "^1.29"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.52",
+        "infection/infection": "^0.28",
+        "phpstan/phpstan": "^1.11",
+        "phpstan/phpstan-deprecation-rules": "^1.2",
+        "phpstan/phpstan-phpunit": "^1.4",
+        "phpstan/phpstan-strict-rules": "^1.6",
+        "phpunit/phpunit": "^11.0"
+    },
+    "provide": {
+        "psr/clock-implementation": "1.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Esi\\Clock\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Esi\\Clock\\Tests\\": "tests/src"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev"
+        }
+    },
+    "scripts": {
+        "cs:check": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff",
+        "cs:fix": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php",
+        "analyze:mutation": "vendor/bin/infection --threads=max --configuration=infection.json5 --min-msi=100 --min-covered-msi=100",
+        "analyze:static": "vendor/bin/phpstan analyse -c phpstan.neon -vvv",
+        "test": "phpunit"
+    }
+}

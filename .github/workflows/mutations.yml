@@ -1,0 +1,55 @@
+name: Mutation Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "master"
+  pull_request:
+    branches:
+      - "master"
+
+jobs:
+  mutation-test:
+    name: "Infection/Mutation Test (PHP ${{ matrix.php-version }}, ${{ matrix.operating-system }})"
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        php-version:
+          - "8.2"
+        operating-system:
+          - "ubuntu-latest"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: "Install PHP ${{ matrix.php-version }}"
+        uses: shivammathur/setup-php@master
+        with:
+           php-version: "${{ matrix.php-version }}"
+           extensions: mbstring
+           coverage: xdebug
+           tools: composer:v2
+
+      - name: "Validate composer.json and composer.lock"
+        run: composer validate --strict
+
+      - name: "Cache Composer packages"
+        id: composer-cache
+        shell: bash
+        run: |
+          echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-
+
+      - name: "Install dependencies"
+        run: composer install --prefer-dist --no-progress
+
+      - name: "Run Infection"
+        run: |
+          git fetch origin $GITHUB_BASE_REF
+          php vendor/bin/infection --threads=max --git-diff-lines --git-diff-base=origin/$GITHUB_BASE_REF --configuration=infection.json5 --min-msi=100 --min-covered-msi=100
