@@ -66,16 +66,21 @@
             "Esi\\Clock\\Tests\\": "tests/src"
         }
     },
+    "config": {
+        "allow-plugins": {
+            "infection/extension-installer": true
+        }
+    },
     "extra": {
         "branch-alias": {
             "dev-master": "1.x-dev"
         }
     },
     "scripts": {
-        "cs:check": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff",
-        "cs:fix": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php",
         "analyze:mutation": "vendor/bin/infection --threads=max --configuration=infection.json5 --min-msi=100 --min-covered-msi=100",
         "analyze:static": "vendor/bin/phpstan analyse -c phpstan.neon -vvv",
+        "cs:check": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff",
+        "cs:fix": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php",
         "test": "phpunit"
     }
 }
