@@ -48,7 +48,7 @@ final class FrozenClock implements ClockInterface
     }
 
     /**
-     * @inheritDoc
+     * Sets the FrozenClock to a specific time.
      */
     public function setTo(DateTimeImmutable $now): void
     {
@@ -58,9 +58,9 @@ final class FrozenClock implements ClockInterface
     /**
      * @inheritDoc
      */
-    public static function fromUtc(): static
+    public static function fromUtc(): FrozenClock
     {
-        return new static(
+        return new FrozenClock(
             new DateTimeImmutable('now', new DateTimeZone('UTC'))
         );
     }

@@ -29,6 +29,8 @@ interface ClockInterface extends PsrClockInterface, Stringable
 
     /**
      * Returns a new *Clock at current system time in UTC.
+     *
+     * @throws \DateInvalidTimeZoneException
      */
     public static function fromUtc(): ClockInterface;
 }

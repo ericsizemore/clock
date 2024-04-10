@@ -28,9 +28,9 @@ use function sprintf;
  *
  * @immutable
  */
-final class SystemClock implements ClockInterface
+final readonly class SystemClock implements ClockInterface
 {
-    private readonly DateTimeZone $timezone;
+    private DateTimeZone $timezone;
 
     /**
      * @throws DateInvalidTimeZoneException If $timezone is passed as string and is invalid.
@@ -42,7 +42,8 @@ final class SystemClock implements ClockInterface
 
             try {
                 $this->timezone = new DateTimeZone($timezone === '' ? 'UTC' : $timezone);
-            } catch (Throwable $throwable) { // \Exception < PHP 8.3, \DateInvalidTimeZoneException >= PHP 8.3
+            // \Exception < PHP 8.3, \DateInvalidTimeZoneException >= PHP 8.3
+            } catch (Throwable $throwable) {
                 throw new DateInvalidTimeZoneException($throwable->getMessage(), \intval($throwable->getCode()), $throwable);
             }
 
@@ -83,17 +84,19 @@ final class SystemClock implements ClockInterface
 
     /**
      * Returns a new SystemClock at current system time using the system's timezone.
+     *
+     * @throws DateInvalidTimeZoneException
      */
-    public static function fromSystemTimezone(): static
+    public static function fromSystemTimezone(): SystemClock
     {
-        return new static(new DateTimeZone(date_default_timezone_get()));
+        return new SystemClock(new DateTimeZone(date_default_timezone_get()));
     }
 
     /**
      * @inheritDoc
      */
-    public static function fromUtc(): static
+    public static function fromUtc(): SystemClock
     {
-        return new static(new DateTimeZone('UTC'));
+        return new SystemClock(new DateTimeZone('UTC'));
     }
 }
