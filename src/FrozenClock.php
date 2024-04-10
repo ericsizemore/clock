@@ -14,6 +14,10 @@ declare(strict_types=1);
 
 namespace Esi\Clock;
 
+use DateTimeImmutable;
+use DateTimeInterface;
+use DateTimeZone;
+
 use function sprintf;
 
 /**
@@ -21,7 +25,7 @@ use function sprintf;
  */
 final class FrozenClock implements ClockInterface
 {
-    public function __construct(private \DateTimeImmutable $now) {}
+    public function __construct(private DateTimeImmutable $now) {}
 
     /**
      * @inheritDoc
@@ -31,14 +35,14 @@ final class FrozenClock implements ClockInterface
         return sprintf(
             '[FrozenClock(): unixtime: %s; iso8601: %s;]',
             $this->now()->format('U'),
-            $this->now()->format(\DateTimeInterface::ISO8601_EXPANDED)
+            $this->now()->format(DateTimeInterface::ISO8601_EXPANDED)
         );
     }
 
     /**
      * @inheritDoc
      */
-    public function now(): \DateTimeImmutable
+    public function now(): DateTimeImmutable
     {
         return $this->now;
     }
@@ -46,7 +50,7 @@ final class FrozenClock implements ClockInterface
     /**
      * @inheritDoc
      */
-    public function setTo(\DateTimeImmutable $now): void
+    public function setTo(DateTimeImmutable $now): void
     {
         $this->now = $now;
     }
@@ -57,7 +61,7 @@ final class FrozenClock implements ClockInterface
     public static function fromUtc(): static
     {
         return new static(
-            new \DateTimeImmutable('now', new \DateTimeZone('UTC'))
+            new DateTimeImmutable('now', new DateTimeZone('UTC'))
         );
     }
 }

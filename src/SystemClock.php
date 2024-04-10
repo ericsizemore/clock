@@ -14,6 +14,12 @@ declare(strict_types=1);
 
 namespace Esi\Clock;
 
+use DateInvalidTimeZoneException;
+use DateTimeImmutable;
+use DateTimeInterface;
+use DateTimeZone;
+use Throwable;
+
 use function date_default_timezone_get;
 use function sprintf;
 
@@ -24,23 +30,23 @@ use function sprintf;
  */
 final class SystemClock implements ClockInterface
 {
-    private readonly \DateTimeZone $timezone;
+    private readonly DateTimeZone $timezone;
 
     /**
-     * @throws \DateInvalidTimeZoneException If $timezone is passed as string and is invalid.
+     * @throws DateInvalidTimeZoneException If $timezone is passed as string and is invalid.
      */
-    public function __construct(\DateTimeZone | string | null $timezone = null)
+    public function __construct(DateTimeZone | string | null $timezone = null)
     {
-        if ($timezone === null || $timezone === '') {
-            $timezone = new \DateTimeZone('UTC');
-        }
+        if (!$timezone instanceof DateTimeZone) {
+            $timezone ??= 'UTC';
 
-        if (\is_string($timezone)) {
             try {
-                $timezone = new \DateTimeZone($timezone);
-            } catch (\Throwable $throwable) { // \Exception < PHP 8.3, \DateInvalidTimeZoneException >= PHP 8.3
-                throw new \DateInvalidTimeZoneException($throwable->getMessage(), \intval($throwable->getCode()), $throwable);
+                $this->timezone = new DateTimeZone($timezone === '' ? 'UTC' : $timezone);
+            } catch (Throwable $throwable) { // \Exception < PHP 8.3, \DateInvalidTimeZoneException >= PHP 8.3
+                throw new DateInvalidTimeZoneException($throwable->getMessage(), \intval($throwable->getCode()), $throwable);
             }
+
+            return;
         }
 
         $this->timezone = $timezone;
@@ -55,7 +61,7 @@ final class SystemClock implements ClockInterface
             '[SystemClock("%s"): unixtime: %s; iso8601: %s;]',
             $this->timezone->getName(),
             $this->now()->format('U'),
-            $this->now()->format(\DateTimeInterface::ISO8601_EXPANDED)
+            $this->now()->format(DateTimeInterface::ISO8601_EXPANDED)
         );
     }
 
@@ -70,9 +76,9 @@ final class SystemClock implements ClockInterface
     /**
      * @inheritDoc
      */
-    public function now(): \DateTimeImmutable
+    public function now(): DateTimeImmutable
     {
-        return new \DateTimeImmutable('now', $this->timezone);
+        return new DateTimeImmutable('now', $this->timezone);
     }
 
     /**
@@ -80,7 +86,7 @@ final class SystemClock implements ClockInterface
      */
     public static function fromSystemTimezone(): static
     {
-        return new static(new \DateTimeZone(date_default_timezone_get()));
+        return new static(new DateTimeZone(date_default_timezone_get()));
     }
 
     /**
@@ -88,6 +94,6 @@ final class SystemClock implements ClockInterface
      */
     public static function fromUtc(): static
     {
-        return new static(new \DateTimeZone('UTC'));
+        return new static(new DateTimeZone('UTC'));
     }
 }

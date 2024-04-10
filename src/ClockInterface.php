@@ -14,16 +14,18 @@ declare(strict_types=1);
 
 namespace Esi\Clock;
 
+use DateTimeImmutable;
 use Psr\Clock\ClockInterface as PsrClockInterface;
+use Stringable;
 
-interface ClockInterface extends PsrClockInterface, \Stringable
+interface ClockInterface extends PsrClockInterface, Stringable
 {
     /**
      * String representation of current clock.
      */
     public function __toString(): string;
 
-    public function now(): \DateTimeImmutable;
+    public function now(): DateTimeImmutable;
 
     /**
      * Returns a new *Clock at current system time in UTC.
