@@ -52,7 +52,7 @@ Issues are the quickest way to report a bug. If you find a bug or documentation 
 
 ### Contributing
 
-* See [CONTRIBUTING.MD](CONTRIBUTING.MD)
+* See [CONTRIBUTING](CONTRIBUTING.md)
 
 
 ### Backward Compatibility Promise
