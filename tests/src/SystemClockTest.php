@@ -14,12 +14,8 @@ declare(strict_types=1);
 
 namespace Esi\Clock\Tests;
 
-use DateInvalidTimeZoneException;
-use DateTimeImmutable;
-use DateTimeZone;
 use Esi\Clock\FrozenClock;
 use Esi\Clock\SystemClock;
-
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\Attributes\UsesClass;
 use PHPUnit\Framework\TestCase;
@@ -35,7 +31,7 @@ final class SystemClockTest extends TestCase
 {
     public function testClockAsStringShouldReturnStringMatchingFormat(): void
     {
-        $timezone = new DateTimeZone('America/New_York');
+        $timezone = new \DateTimeZone('America/New_York');
         $clock    = new SystemClock($timezone);
 
         self::assertStringMatchesFormat('[SystemClock("%s"): unixtime: %s; iso8601: %s;]', (string) $clock);
@@ -67,18 +63,18 @@ final class SystemClockTest extends TestCase
 
     public function testDoesThrowException(): void
     {
-        $this->expectException(DateInvalidTimeZoneException::class);
+        $this->expectException(\DateInvalidTimeZoneException::class);
         new SystemClock('invalid/zone');
     }
 
     public function testFreezeReturnsFrozenClockAndReturnsSameObject(): void
     {
-        $timezone = new DateTimeZone('America/New_York');
+        $timezone = new \DateTimeZone('America/New_York');
         $clock    = new SystemClock($timezone);
 
-        $before      = new DateTimeImmutable('now', $timezone);
+        $before      = new \DateTimeImmutable('now', $timezone);
         $frozenClock = $clock->freeze();
-        $after       = new DateTimeImmutable('now', $timezone);
+        $after       = new \DateTimeImmutable('now', $timezone);
 
         // @phpstan-ignore-next-line
         self::assertInstanceOf(FrozenClock::class, $frozenClock);
@@ -109,12 +105,12 @@ final class SystemClockTest extends TestCase
 
     public function testNowShouldRespectTheProvidedTimezone(): void
     {
-        $timezone = new DateTimeZone('America/New_York');
+        $timezone = new \DateTimeZone('America/New_York');
         $clock    = new SystemClock($timezone);
 
-        $before = new DateTimeImmutable('now', $timezone);
+        $before = new \DateTimeImmutable('now', $timezone);
         $now    = $clock->now();
-        $after  = new DateTimeImmutable('now', $timezone);
+        $after  = new \DateTimeImmutable('now', $timezone);
 
         self::assertEquals($timezone, $now->getTimezone());
         self::assertSame('America/New_York', $now->getTimezone()->getName());

@@ -14,7 +14,6 @@ declare(strict_types=1);
 
 namespace Esi\Clock\Tests;
 
-use DateTimeImmutable;
 use Esi\Clock\FrozenClock;
 use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
@@ -42,7 +41,7 @@ final class FrozenClockTest extends TestCase
 
     public function testNowShouldAlwaysReturnTheSameObject(): void
     {
-        $now   = new DateTimeImmutable();
+        $now   = new \DateTimeImmutable();
         $clock = new FrozenClock($now);
 
         self::assertSame($now, $clock->now());
@@ -51,10 +50,10 @@ final class FrozenClockTest extends TestCase
 
     public function testSetToChangesTheObject(): void
     {
-        $oldNow = new DateTimeImmutable();
+        $oldNow = new \DateTimeImmutable();
         $clock  = new FrozenClock($oldNow);
 
-        $newNow = new DateTimeImmutable();
+        $newNow = new \DateTimeImmutable();
         $clock->setTo($newNow);
 
         self::assertNotSame($oldNow, $clock->now());
