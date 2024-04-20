@@ -215,16 +215,16 @@
     "packages-dev": [
         {
             "name": "amphp/amp",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/amphp/amp.git",
-                "reference": "aaf0ec1d5a2c20b523258995a10e80c1fb765871"
+                "reference": "ff63f10210adb6e83335e0e25522bac5cd7dc4e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/amphp/amp/zipball/aaf0ec1d5a2c20b523258995a10e80c1fb765871",
-                "reference": "aaf0ec1d5a2c20b523258995a10e80c1fb765871",
+                "url": "https://api.github.com/repos/amphp/amp/zipball/ff63f10210adb6e83335e0e25522bac5cd7dc4e2",
+                "reference": "ff63f10210adb6e83335e0e25522bac5cd7dc4e2",
                 "shasum": ""
             },
             "require": {
@@ -234,7 +234,7 @@
             "require-dev": {
                 "amphp/php-cs-fixer-config": "^2",
                 "phpunit/phpunit": "^9",
-                "psalm/phar": "^4.13"
+                "psalm/phar": "5.23.1"
             },
             "type": "library",
             "autoload": {
@@ -284,7 +284,7 @@
             ],
             "support": {
                 "issues": "https://github.com/amphp/amp/issues",
-                "source": "https://github.com/amphp/amp/tree/v3.0.0"
+                "source": "https://github.com/amphp/amp/tree/v3.0.1"
             },
             "funding": [
                 {
@@ -292,7 +292,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-12-18T16:52:44+00:00"
+            "time": "2024-04-18T15:24:36+00:00"
         },
         {
             "name": "amphp/byte-stream",
@@ -2412,12 +2412,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "57b0ae0754674e6a590a5a15c9f4a45102ab46ce"
+                "reference": "1ab6c28b7f4c273d1ffd6a4a5d8ef7e989ea04c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/57b0ae0754674e6a590a5a15c9f4a45102ab46ce",
-                "reference": "57b0ae0754674e6a590a5a15c9f4a45102ab46ce",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/1ab6c28b7f4c273d1ffd6a4a5d8ef7e989ea04c5",
+                "reference": "1ab6c28b7f4c273d1ffd6a4a5d8ef7e989ea04c5",
                 "shasum": ""
             },
             "require": {
@@ -2463,7 +2463,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-17T20:25:24+00:00"
+            "time": "2024-04-18T15:41:16+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
