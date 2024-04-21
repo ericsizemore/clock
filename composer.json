@@ -43,7 +43,7 @@
         "symfony/polyfill-php83": "^1.29"
     },
     "require-dev": {
-        "esi/phpunit-coverage-check": "^1.0",
+        "esi/phpunit-coverage-check": "^2.0",
         "friendsofphp/php-cs-fixer": "^3.53",
         "infection/infection": "^0.28",
         "phpstan/phpstan": "^1.11",
