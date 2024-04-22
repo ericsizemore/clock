@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "37861f20ac7268fdcf8e4b37c63ff1f4",
+    "content-hash": "95433e718b1bf212120f9b0911cbe202",
     "packages": [
         {
             "name": "psr/clock",
@@ -2413,12 +2413,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "aced8be9263840f10eadba63cfb2de2473706377"
+                "reference": "1d2575da9b2ea252d6fd73a5f26f4c244a8c8414"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/aced8be9263840f10eadba63cfb2de2473706377",
-                "reference": "aced8be9263840f10eadba63cfb2de2473706377",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/1d2575da9b2ea252d6fd73a5f26f4c244a8c8414",
+                "reference": "1d2575da9b2ea252d6fd73a5f26f4c244a8c8414",
                 "shasum": ""
             },
             "require": {
@@ -2464,7 +2464,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-04-20T21:06:39+00:00"
+            "time": "2024-04-22T11:21:03+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",

@@ -31,7 +31,7 @@ final readonly class SystemClock implements ClockInterface
     /**
      * @throws \DateInvalidTimeZoneException If $timezone is passed as string and is invalid.
      */
-    public function __construct(\DateTimeZone | string | null $timezone = null)
+    public function __construct(null|\DateTimeZone|string $timezone = null)
     {
         if (!$timezone instanceof \DateTimeZone) {
             $timezone ??= 'UTC';
