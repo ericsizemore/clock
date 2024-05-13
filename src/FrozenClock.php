@@ -31,7 +31,7 @@ final class FrozenClock implements ClockInterface
         return sprintf(
             '[FrozenClock(): unixtime: %s; iso8601: %s;]',
             $this->now()->format('U'),
-            $this->now()->format(\DateTimeInterface::ISO8601_EXPANDED)
+            $this->now()->format(\DateTimeImmutable::ISO8601_EXPANDED)
         );
     }
 

@@ -6,13 +6,13 @@
 [![Tests](https://github.com/ericsizemore/clock/actions/workflows/tests.yml/badge.svg)](https://github.com/ericsizemore/clock/actions/workflows/tests.yml)
 [![PHPStan](https://github.com/ericsizemore/clock/actions/workflows/main.yml/badge.svg)](https://github.com/ericsizemore/clock/actions/workflows/main.yml)
 [![Psalm Static analysis](https://github.com/ericsizemore/clock/actions/workflows/psalm.yml/badge.svg?branch=master)](https://github.com/ericsizemore/clock/actions/workflows/psalm.yml)
-
 [![Type Coverage](https://shepherd.dev/github/ericsizemore/clock/coverage.svg)](https://shepherd.dev/github/ericsizemore/clock)
 [![Psalm Level](https://shepherd.dev/github/ericsizemore/clock/level.svg)](https://shepherd.dev/github/ericsizemore/clock)
 [![Latest Stable Version](https://img.shields.io/packagist/v/esi/clock.svg)](https://packagist.org/packages/esi/clock)
 [![Downloads per Month](https://img.shields.io/packagist/dm/esi/clock.svg)](https://packagist.org/packages/esi/clock)
 [![License](https://img.shields.io/packagist/l/esi/clock.svg)](https://packagist.org/packages/esi/clock)
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2Fericsizemore%2Fclock%2Fmaster)](https://dashboard.stryker-mutator.io/reports/github.com/ericsizemore/clock/master)
+[![SymfonyInsight](https://insight.symfony.com/projects/9898b62b-7fed-42be-b34e-5f9ce3e28f2d/mini.svg)](https://insight.symfony.com/projects/9898b62b-7fed-42be-b34e-5f9ce3e28f2d)
 
 Yet ...another... PSR-20 Clock implementation.
 
