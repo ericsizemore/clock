@@ -62,4 +62,3 @@ jobs:
           php vendor/bin/infection --threads=max --git-diff-lines --git-diff-base=origin/$GITHUB_BASE_REF --configuration=infection.json5 --min-msi=100 --min-covered-msi=100
         env:
           STRYKER_DASHBOARD_API_KEY: ${{ secrets.STRYKER_DASHBOARD_API_KEY }}
-          
