@@ -40,18 +40,18 @@
     "require": {
         "php": "^8.2 <8.5",
         "psr/clock": "^1.0",
-        "symfony/polyfill-php83": "^1.29"
+        "symfony/polyfill-php83": "^1.31"
     },
     "require-dev": {
         "esi/phpunit-coverage-check": "^2.0",
-        "friendsofphp/php-cs-fixer": "^3.58",
+        "friendsofphp/php-cs-fixer": "^3.64",
         "infection/infection": "^0.29",
         "phpstan/extension-installer": "^1.4",
-        "phpstan/phpstan": "^1.11",
+        "phpstan/phpstan": "^1.12",
         "phpstan/phpstan-deprecation-rules": "^1.2",
         "phpstan/phpstan-phpunit": "^1.4",
         "phpstan/phpstan-strict-rules": "^1.6",
-        "phpunit/phpunit": "^11.1",
+        "phpunit/phpunit": "^11.4",
         "psalm/plugin-phpunit": "^0.19.0",
         "vimeo/psalm": "dev-master"
     },
@@ -83,7 +83,7 @@
     },
     "scripts": {
         "analyze:mutation": "vendor/bin/infection --threads=max --configuration=infection.json5 --min-msi=100 --min-covered-msi=100",
-        "analyze:psalm": "vendor/bin/psalm -c psalm.xml --no-diff",
+        "analyze:psalm": "vendor/bin/psalm -c psalm.xml --no-diff --use-baseline=psalm-baseline.xml",
         "analyze:static": "vendor/bin/phpstan analyse -c phpstan.neon -vvv",
         "coverage": "vendor/bin/coverage-check build/logs/clover.xml 100",
         "cs:check": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff",

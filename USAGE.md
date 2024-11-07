@@ -173,6 +173,23 @@ $clock->setTo(new \DateTimeImmutable('+3 hours'));
 $newNow = $clock->now();
 ```
 
+Or make use of the `adjustTo()` method which requires a valid date/time string to be passed.
+Note: On PHP 8.3+, an invalid string will result in a [DateMalformedStringException](https://www.php.net/manual/en/class.datemalformedstringexception.php) being thrown, otherwise it is an error.
+
+```php
+<?php
+
+declare(strict_types=1);
+
+use Esi\Clock\FrozenClock;
+
+$clock = new FrozenClock(new \DateTimeImmutable());
+$now = $clock->now();
+
+$clock->adjustTo('+3 hours');
+$newNow = $clock->now();
+```
+
 You can also create a new frozen clock by freezing a system clock:
 
 ```php

@@ -14,9 +14,11 @@ declare(strict_types=1);
 
 namespace Esi\Clock\Tests;
 
+use DateMalformedStringException;
 use DateTimeImmutable;
 use Esi\Clock\FrozenClock;
 use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\RequiresPhp;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -25,6 +27,33 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(FrozenClock::class)]
 final class FrozenClockTest extends TestCase
 {
+    public function testAdjustToChangesTheObject(): void
+    {
+        $oldNow = new DateTimeImmutable();
+        $newNow = $oldNow->modify('+7 days');
+
+        $clock = new FrozenClock($oldNow);
+
+        $clock->adjustTo('+7 days');
+
+        self::assertNotEquals($oldNow, $clock->now());
+        self::assertEquals($newNow, $clock->now());
+
+        $clock->adjustTo('-7 days');
+
+        self::assertEquals($oldNow, $clock->now());
+        self::assertNotEquals($newNow, $clock->now());
+    }
+
+    #[RequiresPhp('8.3')]
+    public function testAdjustToThrowsForInvalidModifier(): void
+    {
+        $clock = FrozenClock::fromUtc();
+
+        $this->expectException(DateMalformedStringException::class);
+        $clock->adjustTo('notValid');
+    }
+
     public function testClockAsStringShouldReturnStringMatchingFormat(): void
     {
         $clock = FrozenClock::fromUtc();

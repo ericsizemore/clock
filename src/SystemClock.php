@@ -21,7 +21,6 @@ use DateTimeZone;
 use Throwable;
 
 use function date_default_timezone_get;
-use function sprintf;
 
 /**
  * A clock that relies on system time.
@@ -59,7 +58,7 @@ final readonly class SystemClock implements ClockInterface
      */
     public function __toString(): string
     {
-        return sprintf(
+        return \sprintf(
             '[SystemClock("%s"): unixtime: %s; iso8601: %s;]',
             $this->timezone->getName(),
             $this->now()->format('U'),
@@ -90,7 +89,7 @@ final readonly class SystemClock implements ClockInterface
      */
     public static function fromSystemTimezone(): SystemClock
     {
-        return new SystemClock(new DateTimeZone(date_default_timezone_get()));
+        return new self(new DateTimeZone(date_default_timezone_get()));
     }
 
     /**

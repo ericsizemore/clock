@@ -18,8 +18,6 @@ use DateTimeImmutable;
 use DateTimeInterface;
 use DateTimeZone;
 
-use function sprintf;
-
 /**
  * A clock frozen in time.
  */
@@ -32,11 +30,22 @@ final class FrozenClock implements ClockInterface
      */
     public function __toString(): string
     {
-        return sprintf(
+        return \sprintf(
             '[FrozenClock(): unixtime: %s; iso8601: %s;]',
             $this->now()->format('U'),
             $this->now()->format(DateTimeInterface::ISO8601_EXPANDED)
         );
+    }
+
+    /**
+     * Adjusts the FrozenClock time based on a given modifier.
+     *
+     * @see https://www.php.net/manual/en/datetime.formats.php
+     * @see https://www.php.net/manual/en/class.datemalformedstringexception.php
+     */
+    public function adjustTo(string $withModifier): void
+    {
+        $this->now = $this->now->modify($withModifier);
     }
 
     /**

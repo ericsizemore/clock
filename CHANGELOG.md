@@ -9,7 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-  * Added [SymfonyInsight]() into workflow.
+  * Added support for adjusting (or modifying) the frozen clock with a given modifier.
+    * New method `adjustTo(string $withModifier)`
+  * Added `psalm-baseline.xml`
+
+### Changed
+
+  * Updated composer.json (dev dependencies)
+    * ... and composer.lock
+  * Updated `USAGE.md` 
 
 
 ## [1.0.0] - 2024-04-10
