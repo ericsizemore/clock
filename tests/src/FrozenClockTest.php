@@ -33,7 +33,6 @@ final class FrozenClockTest extends TestCase
         $newNow = $oldNow->modify('+7 days');
 
         $clock = new FrozenClock($oldNow);
-
         $clock->adjustTo('+7 days');
 
         self::assertNotEquals($oldNow, $clock->now());

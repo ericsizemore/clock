@@ -45,7 +45,15 @@ final class FrozenClock implements ClockInterface
      */
     public function adjustTo(string $withModifier): void
     {
-        $this->now = $this->now->modify($withModifier);
+        $newNow = $this->now->modify($withModifier);
+
+        /**
+         * Ignoring the phpstan error for now. PHPStan and Psalm appear to fight over this a bit.
+         * Look further into it in the future.
+         */
+        if ($newNow !== false) { // @phpstan-ignore notIdentical.alwaysTrue
+            $this->setTo($newNow);
+        }
     }
 
     /**
@@ -66,6 +74,8 @@ final class FrozenClock implements ClockInterface
 
     /**
      * @inheritDoc
+     *
+     * @throws \DateMalformedStringException
      */
     public static function fromUtc(): FrozenClock
     {
