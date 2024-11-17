@@ -42,18 +42,12 @@ final class FrozenClock implements ClockInterface
      *
      * @see https://www.php.net/manual/en/datetime.formats.php
      * @see https://www.php.net/manual/en/class.datemalformedstringexception.php
+     *
+     * @psalm-suppress PossiblyFalsePropertyAssignmentValue
      */
     public function adjustTo(string $withModifier): void
     {
-        $newNow = $this->now->modify($withModifier);
-
-        /**
-         * Ignoring the phpstan error for now. PHPStan and Psalm appear to fight over this a bit.
-         * Look further into it in the future.
-         */
-        if ($newNow !== false) { // @phpstan-ignore notIdentical.alwaysTrue
-            $this->setTo($newNow);
-        }
+        $this->now = $this->now->modify($withModifier);
     }
 
     /**
