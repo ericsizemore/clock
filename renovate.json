@@ -6,7 +6,9 @@
     "lockFileMaintenance": {
         "enabled": true,
         "extends": [
-            "schedule:daily"
+            "schedule:weekly"
         ]
-    }
+    },
+    "labels": ["dependency"],
+    "commitMessagePrefix": "chore(deps): "
 }
