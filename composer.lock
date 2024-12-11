@@ -5942,8 +5942,8 @@
             "type": "library",
             "extra": {
                 "thanks": {
-                    "name": "symfony/polyfill",
-                    "url": "https://github.com/symfony/polyfill"
+                    "url": "https://github.com/symfony/polyfill",
+                    "name": "symfony/polyfill"
                 }
             },
             "autoload": {
@@ -6651,12 +6651,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/vimeo/psalm.git",
-                "reference": "79ab7e26d49380a70780b22cd4eaa7e9022c77ad"
+                "reference": "a9b529116889c82f675f49e869d78f225cba2cab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vimeo/psalm/zipball/79ab7e26d49380a70780b22cd4eaa7e9022c77ad",
-                "reference": "79ab7e26d49380a70780b22cd4eaa7e9022c77ad",
+                "url": "https://api.github.com/repos/vimeo/psalm/zipball/a9b529116889c82f675f49e869d78f225cba2cab",
+                "reference": "a9b529116889c82f675f49e869d78f225cba2cab",
                 "shasum": ""
             },
             "require": {
@@ -6752,7 +6752,7 @@
                 "issues": "https://github.com/vimeo/psalm/issues",
                 "source": "https://github.com/vimeo/psalm"
             },
-            "time": "2024-11-30T18:54:38+00:00"
+            "time": "2024-12-10T09:50:35+00:00"
         },
         {
             "name": "webmozart/assert",
