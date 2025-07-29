@@ -45,7 +45,7 @@
     "require-dev": {
         "esi/phpunit-coverage-check": "^2.0",
         "friendsofphp/php-cs-fixer": "^3.68",
-        "infection/infection": "^0.30",
+        "infection/infection": "^0.31",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-deprecation-rules": "^2.0",
