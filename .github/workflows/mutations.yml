@@ -22,7 +22,7 @@ jobs:
         operating-system:
           - "ubuntu-latest"
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: "Install PHP ${{ matrix.php-version }}"
         uses: shivammathur/setup-php@master
