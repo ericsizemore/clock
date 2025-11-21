@@ -38,7 +38,7 @@
         }
     ],
     "require": {
-        "php": "^8.2 <8.5",
+        "php": "<8.6",
         "psr/clock": "^1.0",
         "symfony/polyfill-php83": "^1.31"
     },
