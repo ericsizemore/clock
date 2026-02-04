@@ -24,8 +24,10 @@ interface ClockInterface extends PsrClockInterface, Stringable
     /**
      * String representation of current clock.
      */
+    #[\Override]
     public function __toString(): string;
 
+    #[\Override]
     public function now(): DateTimeImmutable;
 
     /**

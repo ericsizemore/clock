@@ -28,6 +28,7 @@ final class FrozenClock implements ClockInterface
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function __toString(): string
     {
         return \sprintf(
@@ -42,8 +43,6 @@ final class FrozenClock implements ClockInterface
      *
      * @see https://www.php.net/manual/en/datetime.formats.php
      * @see https://www.php.net/manual/en/class.datemalformedstringexception.php
-     *
-     * @psalm-suppress PossiblyFalsePropertyAssignmentValue
      */
     public function adjustTo(string $withModifier): void
     {
@@ -53,6 +52,7 @@ final class FrozenClock implements ClockInterface
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function now(): DateTimeImmutable
     {
         return $this->now;
@@ -71,6 +71,7 @@ final class FrozenClock implements ClockInterface
      *
      * @throws \DateMalformedStringException
      */
+    #[\Override]
     public static function fromUtc(): FrozenClock
     {
         return new FrozenClock(

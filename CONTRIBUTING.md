@@ -73,7 +73,7 @@ This project comes with configuration files for various tools that are used with
 No configuration is needed for [PHPUnit Coverage Check](https://github.com/ericsizemore/phpunit-coverage-check). You can use PHPUnit Coverage Check to check the coverage percentage in the codebase after your changes. I try to stick to 100% line coverage.
 
 ```bash
-$ composer run-script coverage
+$ composer run-script code-coverage
 ```
 
 #### Infection (mutation testing)
@@ -81,7 +81,7 @@ $ composer run-script coverage
 The configuration file can be found at `infection.json5`, in the repository, for [Infection](https://infection.github.io/guide/). You can use Infection to perform mutation testing:
 
 ```bash
-$ composer run-script analyze:mutation
+$ composer run-script infection
 ```
 
 #### PHPStan
@@ -89,7 +89,7 @@ $ composer run-script analyze:mutation
 The configuration file can be found at `phpstan.neon`, in the repository, for [PHPStan](https://phpstan.org/). You can use PHPStan to perform static analysis:
 
 ```bash
-$ composer run-script analyze:static
+$ composer run-script phpstan
 ```
 
 #### Psalm
@@ -97,7 +97,7 @@ $ composer run-script analyze:static
 The configuration file can be found at `psalm.xml`, in the repository, for [Psalm](https://psalm.dev/). You can use Psalm to perform static analysis (with a focus on type checking):
 
 ```bash
-$ composer run-script analyze:psalm
+$ composer run-script psalm
 ```
 
 #### PHP-CS-Fixer
@@ -105,7 +105,7 @@ $ composer run-script analyze:psalm
 The configuration file can be found at `.php-cs-fixer.dist.php`, in the repository, for [PHP-CS-Fixer](https://github.com/PHP-CS-Fixer/PHP-CS-Fixer). You can use PHP-CS-Fixer to (re)format your source code for compliance with this project's coding guidelines:
 
 ```bash
-$ composer run-script cs:fix
+$ composer run-script phpcs:fix
 ```
 
 #### Unit tests (via PHPUnit)
@@ -113,7 +113,7 @@ $ composer run-script cs:fix
 The configuration file can be found at `phpunit.xml`, in the repository, for [PHPUnit](https://phpunit.de/index.html). You can run the test suite with:
 
 ```bash
-$ composer run-script test
+$ composer run-script phpunit
 ```
 
 ### Documentation

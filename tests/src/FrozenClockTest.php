@@ -44,7 +44,7 @@ final class FrozenClockTest extends TestCase
         self::assertNotEquals($newNow, $clock->now());
     }
 
-    #[RequiresPhp('8.3')]
+    #[RequiresPhp('>=8.3')]
     public function testAdjustToThrowsForInvalidModifier(): void
     {
         $clock = FrozenClock::fromUtc();

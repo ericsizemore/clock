@@ -56,6 +56,7 @@ final readonly class SystemClock implements ClockInterface
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function __toString(): string
     {
         return \sprintf(
@@ -77,6 +78,7 @@ final readonly class SystemClock implements ClockInterface
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function now(): DateTimeImmutable
     {
         return new DateTimeImmutable('now', $this->timezone);
@@ -95,6 +97,7 @@ final readonly class SystemClock implements ClockInterface
     /**
      * @inheritDoc
      */
+    #[\Override]
     public static function fromUtc(): SystemClock
     {
         return new SystemClock(new DateTimeZone('UTC'));

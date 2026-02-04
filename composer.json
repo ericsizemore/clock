@@ -38,13 +38,13 @@
         }
     ],
     "require": {
-        "php": "^8.2 <8.5",
+        "php": "^8.2 <8.6",
         "psr/clock": "^1.0",
-        "symfony/polyfill-php83": "^1.31"
+        "symfony/polyfill-php83": "^1.33"
     },
     "require-dev": {
         "esi/phpunit-coverage-check": "^2.0",
-        "friendsofphp/php-cs-fixer": "^3.68",
+        "friendsofphp/php-cs-fixer": "^3.93",
         "infection/infection": "^0.32",
         "phpstan/extension-installer": "^1.4",
         "phpstan/phpstan": "^2.1",
@@ -53,7 +53,8 @@
         "phpstan/phpstan-strict-rules": "^2.0",
         "phpunit/phpunit": "^11.5",
         "psalm/plugin-phpunit": "^0.19.0",
-        "vimeo/psalm": "dev-master"
+        "rector/rector": "^2.3",
+        "vimeo/psalm": "^6.15"
     },
     "provide": {
         "psr/clock-implementation": "1.0"
@@ -82,12 +83,19 @@
         }
     },
     "scripts": {
-        "analyze:mutation": "vendor/bin/infection --threads=max --configuration=infection.json5 --min-msi=100 --min-covered-msi=100",
-        "analyze:psalm": "vendor/bin/psalm -c psalm.xml --no-diff",
-        "analyze:static": "vendor/bin/phpstan analyse -c phpstan.neon -vvv",
-        "coverage": "vendor/bin/coverage-check build/logs/clover.xml 100",
-        "cs:check": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php --dry-run --diff",
-        "cs:fix": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php",
-        "test": "phpunit"
+        "clear-build": "rm -rf ./build/*",
+        "code-coverage": "@php vendor/bin/coverage-check build/logs/clover.xml 100 --show-files",
+        "infection": "vendor/bin/infection --threads=max --configuration=infection.json5 --min-msi=100 --min-covered-msi=100",
+        "phpcs:check": "@phpcs:fix --dry-run --diff",
+        "phpcs:fix": "vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist.php",
+        "phpstan": "vendor/bin/phpstan analyse -c phpstan.neon -vvv",
+        "phpunit": "vendor/bin/phpunit",
+        "phpunit:migrate": "@phpunit --migrate-configuration",
+        "psalm": "vendor/bin/psalm -c psalm.xml --no-cache --show-info=true",
+        "psalm:baseline": "@psalm --no-diff --set-baseline=psalm-baseline.xml",
+        "psalm:ci": "@psalm --shepherd --report=results.sarif",
+        "psalm:shepherd": "@psalm --no-diff --shepherd --stats",
+        "refactor:check": "@refactor:fix --dry-run",
+        "refactor:fix": "vendor/bin/rector process"
     }
 }

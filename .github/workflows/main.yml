@@ -37,7 +37,8 @@ jobs:
         uses: ramsey/composer-install@v3
         with:
           composer-options: "--prefer-dist --optimize-autoloader"
-          require-lock-file: "true"
+          require-lock-file: "false"
+          dependency-versions: "highest"
 
       - name: "Run PHPStan"
-        run: composer run-script analyze:static
+        run: composer run-script phpstan
