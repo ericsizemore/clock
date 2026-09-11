@@ -40,21 +40,21 @@
     "require": {
         "php": ">=8.2",
         "psr/clock": "^1.0",
-        "symfony/polyfill-php83": "^1.33"
+        "symfony/polyfill-php83": "^1.41"
     },
     "require-dev": {
         "esi/phpunit-coverage-check": "^2.0 || ^3.1",
-        "friendsofphp/php-cs-fixer": "^3.94",
-        "infection/infection": "^0.32",
+        "friendsofphp/php-cs-fixer": "^3.95",
+        "infection/infection": "^0.35",
         "phpstan/extension-installer": "^1.4",
-        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan": "^2.2",
         "phpstan/phpstan-deprecation-rules": "^2.0",
         "phpstan/phpstan-phpunit": "^2.0",
         "phpstan/phpstan-strict-rules": "^2.0",
-        "phpunit/phpunit": "^11.5 || ^12.5 || ^13.0",
+        "phpunit/phpunit": "^11.5 || ^12.5 || ^13.1",
         "psalm/plugin-phpunit": "^0.19.0",
-        "rector/rector": "^2.3",
-        "vimeo/psalm": "^6.15"
+        "rector/rector": "^2.6",
+        "vimeo/psalm": "^6.17 || ^7.0"
     },
     "provide": {
         "psr/clock-implementation": "1.0"
